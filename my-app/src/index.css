@@ -46,7 +46,11 @@ body {
 }
 
 .btn:active {
-  transform: scale(0.98);
+  transform: scale(0.9);
+}
+
+.btn:hover {
+  opacity: 0.5;
 }
 
 .btn-block {
