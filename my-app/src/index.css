@@ -75,6 +75,11 @@ body {
   justify-content: space-between;
 }
 
+.task .cancel-icon {
+  color:red;
+  cursor: pointer;
+}
+
 .add-form {
   margin-bottom: 40px;
 }
