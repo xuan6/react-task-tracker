@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
+import AddTask from './components/AddTask'
+
 
 
 
@@ -41,9 +43,17 @@ const App = () => {
         )
   }
 
+  const addTask = (task) => { //task is an object with 3 parameters - text, day, reminder
+    const id = Math.floor(Math.random()*100+1)
+    const newTask = {id, ...task}
+    setTasks([...tasks, newTask])
+
+  }
+
   return (
     <div className="container">
       <Header />
+      <AddTask onAdd={addTask}/>
       {tasks.length > 0 ?
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>
         : 'No Task to Show' //show empty state
