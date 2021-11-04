@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-const AddTask = ({onAdd}) => {
+const AddTask = ({onAdd, formVisibility}) => {
 
     const [text, setText] = useState('')
     const [day, setDay] = useState('')
@@ -24,7 +24,7 @@ const AddTask = ({onAdd}) => {
     }
 
     return (
-        <form className='add-form' onSubmit={onSubmit}>
+        <form className={`add-form ${formVisibility}`} onSubmit={onSubmit}>
             <div className='form-control'>
                 <label>Task</label>
                 <input
@@ -55,7 +55,7 @@ const AddTask = ({onAdd}) => {
                 type='submit'
                 value='Save Task'
                 className='btn btn-block'
-                // onClick={()=>onSubmit}
+
             />
         </form>
     )

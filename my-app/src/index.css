@@ -6,6 +6,14 @@
   padding: 0;
 }
 
+.hide {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
 }
