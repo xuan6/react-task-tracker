@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
@@ -8,26 +8,24 @@ import AddTask from './components/AddTask'
 
 const App = () => {
   // const [showAddTask, setShowAddTask] = 
-  const [tasks, setTasks] = useState ([
-        {
-            id:1,
-            text:'Doctors Appointment',
-            day:'Feb 5th at 2:30pm',
-            reminder:true,
-        },
-        {
-            id:2,
-            text:'Meeting',
-            day:'Feb 6th at 1:30pm',
-            reminder:true,
-        },
-        {
-            id:3,
-            text:'Grocery Shopping',
-            day:'Feb 5th at 6:30pm',
-            reminder:false,
-        }
-    ])
+  const [tasks, setTasks] = useState ([ ])
+
+  useEffect(()=>{
+    const getTasks = async ()=> {
+      const tasksFromServer = await fetchTasks()
+      setTasks(tasksFromServer)
+    }
+    getTasks()
+  },[])
+
+
+
+  //fetch data from server
+  const fetchTasks = async()=>{
+    const res = await fetch('http://localhost:3000/tasks')
+    const data = await res.json()
+    return data
+  }
 
   //const a function to delete task
   const deleteTask = (id) => {
@@ -42,7 +40,6 @@ const App = () => {
         !task.reminder} : task)
         )
   }
-
 
   const addTask = (task) => { //task is an object with 3 parameters - text, day, reminder
     const id = Math.floor(Math.random()*100+1) //if use tasks.length + 1, then it will cause duplicated id when we delete tasks from the list. Say delete #2 task and add a new task, the later two tasks would both have id as #3
@@ -79,7 +76,7 @@ const App = () => {
       <AddTask onAdd={addTask}/>: <p>Click button to expand</p> }
       {tasks.length > 0 ?
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>
-        : 'No Task to Show' //show empty state
+        : <p>No Task to Show</p> //show empty state
       }
     </div>
   );
