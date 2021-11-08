@@ -6,15 +6,18 @@ import { useState, useEffect } from 'react'
 const Header = ({title, toggleTaskForm}) => {
     const [text, setText] = useState('Dismiss')
     const [visibility, setVisibility]= useState('true')
+    const [buttonColor, setButtonColor] = useState('green')
 
     const toggleHide = () => {
         setText('Add New Task')
         setVisibility('false')
+        setButtonColor('green')
     }
     
     const toggleAdd = () => {
         setText('Dismiss')
         setVisibility('true')
+        setButtonColor('grey')
     }
     
     const onClick =()=> {
@@ -29,7 +32,7 @@ const Header = ({title, toggleTaskForm}) => {
     return (
         <div>
             <h1 className='header'>{title}</h1>
-            <Button color='green' text={text} onClick={onClick}/>
+            <Button color={buttonColor} text={text} onClick={onClick}/>
         </div>
     )
 }

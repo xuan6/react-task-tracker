@@ -6,16 +6,12 @@
   padding: 0;
 }
 
-.hide {
-  visibility: hidden;
-}
-
-.visible {
-  visibility: visible;
-}
-
 body {
   font-family: 'Poppins', sans-serif;
+}
+
+label {
+  margin-left: 4px;
 }
 
 .container {
@@ -41,8 +37,8 @@ body {
   color: #fff;
   border: none;
   padding: 10px 20px;
-  margin: 5px;
-  border-radius: 5px;
+  margin: 4px;
+  border-radius: 4px;
   cursor: pointer;
   text-decoration: none;
   font-size: 15px;
@@ -68,7 +64,7 @@ body {
 
 .task {
   background: #f4f4f4;
-  margin: 5px;
+  margin: 4px;
   padding: 10px 20px;
   cursor: pointer;
 }
@@ -104,8 +100,8 @@ body {
   width: 100%;
   height: 40px;
   margin: 5px;
-  padding: 3px 7px;
-  font-size: 17px;
+  padding: 4px 8px;
+  font-size: 16px;
 }
 
 .form-control-check {
