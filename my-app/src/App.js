@@ -18,9 +18,16 @@ const App = () => {
     getTasks()
   },[])
 
-  //fetch data from server
+  //fetch tasks array from server
   const fetchTasks = async()=>{
     const res = await fetch('http://localhost:3000/tasks')
+    const data = await res.json()
+    return data
+  }
+
+  //fetch specific task by id from server
+  const fetchTask = async(id)=>{
+    const res = await fetch(`http://localhost:3000/tasks/${id}`)
     const data = await res.json()
     return data
   }
@@ -31,15 +38,6 @@ const App = () => {
       method:'DELETE'
     })
     setTasks(tasks.filter((task)=> task.id !== id))
-  }
-
-  // const a function to set reminder
-  const toggleReminder = (id) => {
-    setTasks(
-      tasks.map((task) => 
-        task.id === id ? {...task, reminder:
-        !task.reminder} : task)
-        )
   }
 
   const addTask = async(task) => { //task is an object with 3 parameters - text, day, reminder
@@ -60,6 +58,34 @@ const App = () => {
 
     
   }
+
+  // const a function to set reminder
+  const toggleReminder = async(id) => {
+    const taskToToggle = await fetchTask(id)
+    const updatedTask = {...taskToToggle, reminder:!taskToToggle.reminder}//other properties under the task will not change, only the reminder property change to the opposite value, and then save this changed task as a object, waiting to be pass to server side
+    const res = await fetch(`http://localhost:3000/tasks/${id}`,{
+      method:'PUT',
+      headers:{
+        'Content-type':'application/json'
+      },
+      body: JSON.stringify(updatedTask) //connect with server to modify that specific task by swapping it with the updated task object
+    })
+
+    const data = await res.json()
+
+    setTasks(
+      tasks.map((task) => 
+        task.id === id ? {...task, reminder:
+        data.reminder} : task) //since data represents the latest updated task after we toggle ir, we can use data.reminder to show the change, aka change server side data first, and then pass down the change to the UI level
+        )
+    
+    //if not using json-sever, see below for how to make pure UI change
+    // setTasks(
+    //   tasks.map((task) => 
+    //     task.id === id ? {...task, reminder:
+    //     !task.reminder} : task)
+    //     )
+  } 
 
   //set add task form visibility
   const [formDisplay, setFormDisplay] = useState(true)
