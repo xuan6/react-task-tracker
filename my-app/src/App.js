@@ -102,7 +102,7 @@ const App = () => {
     <div className="container">
       <Header toggleTaskForm={toggleTaskForm}/>
       {formDisplay?
-      <AddTask onAdd={addTask}/>: <p style={{marginTop:'24px'}}>Click button to expand</p> }
+      <AddTask onAdd={addTask}/>: " " }
       {tasks.length > 0 ?
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>
         : <p>No Task to Show</p> //show empty state

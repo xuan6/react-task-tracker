@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react'
 
 
 const Header = ({title, toggleTaskForm}) => {
-    const [text, setText] = useState('Dismiss Form')
-    const [visibility, setVisibility]= useState('true')
-    const [buttonColor, setButtonColor] = useState('grey')
+    const [text, setText] = useState('Add New Task')
+    const [visibility, setVisibility]= useState('false')
+    const [buttonColor, setButtonColor] = useState('green')
 
     const toggleHide = () => {
         setText('Add New Task')
@@ -15,7 +15,7 @@ const Header = ({title, toggleTaskForm}) => {
     }
     
     const toggleAdd = () => {
-        setText('Dismiss Form')
+        setText('Cancel')
         setVisibility('true')
         setButtonColor('grey')
     }
