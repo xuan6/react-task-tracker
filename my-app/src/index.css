@@ -16,7 +16,7 @@ p, label {
 
 .container {
   max-width: 500px;
-  margin: 30px auto;
+  margin: 24px auto;
   overflow: auto;
   min-height: 300px;
   border: 1px solid steelblue;
@@ -89,7 +89,7 @@ p, label {
 }
 
 .form-control {
-  margin: 20px 0;
+  margin: 24px 0;
 }
 
 .form-control label {
@@ -99,7 +99,7 @@ p, label {
 .form-control input {
   width: 100%;
   height: 40px;
-  margin: 5px;
+  margin: 4px;
   padding: 4px 8px;
   font-size: 16px;
 }

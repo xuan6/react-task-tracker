@@ -18,8 +18,6 @@ const App = () => {
     getTasks()
   },[])
 
-
-
   //fetch data from server
   const fetchTasks = async()=>{
     const res = await fetch('http://localhost:3000/tasks')
@@ -28,7 +26,10 @@ const App = () => {
   }
 
   //const a function to delete task
-  const deleteTask = (id) => {
+  const deleteTask = async (id) => {
+    await fetch(`http://localhost:3000/tasks/${id}`,{
+      method:'DELETE'
+    })
     setTasks(tasks.filter((task)=> task.id !== id))
   }
 
@@ -41,21 +42,23 @@ const App = () => {
         )
   }
 
-  const addTask = (task) => { //task is an object with 3 parameters - text, day, reminder
-    const id = Math.floor(Math.random()*100+1) //if use tasks.length + 1, then it will cause duplicated id when we delete tasks from the list. Say delete #2 task and add a new task, the later two tasks would both have id as #3
-    const newTask = {id, ...task}
-    setTasks([...tasks, newTask])
+  const addTask = async(task) => { //task is an object with 3 parameters - text, day, reminder
+    const res = await fetch('http://localhost:3000/tasks', {
+      method: 'POST', //add new task to server
+      headers: {
+        'Content-type' : 'application/json',
+      },
+      body: JSON.stringify(task),
+    })
+    const data = await res.json()
+    setTasks([...tasks, data]) //update the UI to show new task
+    
+    //without setting server, pure UI redenring see below
+    // const id = Math.floor(Math.random()*100+1) //if use tasks.length + 1, then it will cause duplicated id when we delete tasks from the list. Say delete #2 task and add a new task, the later two tasks would both have id as #3
+    // const newTask = {id, ...task}
+    // setTasks([...tasks, newTask])
 
-    //refresh ID
-    // const taskCount = tasks.length
-    // for (let i = 0; i<taskCount; i++){
-    //   setTasks(
-    //     tasks.map((task)=>
-    //       task.id = i
-    //     )
-    //   )
-    // }
-
+    
   }
 
   //set add task form visibility
@@ -73,7 +76,7 @@ const App = () => {
     <div className="container">
       <Header toggleTaskForm={toggleTaskForm}/>
       {formDisplay?
-      <AddTask onAdd={addTask}/>: <p>Click button to expand</p> }
+      <AddTask onAdd={addTask}/>: <p style={{marginTop:'24px'}}>Click button to expand</p> }
       {tasks.length > 0 ?
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>
         : <p>No Task to Show</p> //show empty state
