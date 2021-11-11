@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import Button from './Button'
+import { useLocation } from 'react-router'
 import { useState, useEffect } from 'react'
 
 
@@ -28,11 +29,15 @@ const Header = ({title, toggleTaskForm}) => {
         toggleTaskForm(visibility)
     });
 
+    const location = useLocation()
+
 
     return (
         <div>
             <h1 className='header'>{title}</h1>
-            <Button color={buttonColor} text={text} onClick={onClick}/>
+            {location.pathname ==='/' &&
+                (<Button color={buttonColor} text={text} onClick={onClick}/>)
+            }
         </div>
     )
 }

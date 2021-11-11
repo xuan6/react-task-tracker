@@ -10,8 +10,12 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-p, label {
+p, label, .footer {
   margin-left: 4px;
+}
+
+.footer {
+  margin-top: 24px;
 }
 
 .container {
