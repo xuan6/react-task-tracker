@@ -23,34 +23,35 @@ const App = () => {
 
   //fetch tasks array from server
   const fetchTasks = async()=>{
-    const res = await fetch('http://localhost:3000/tasks')
+    const res = await fetch('http://localhost:3004/tasks')
     const data = await res.json()
     return data
   }
 
   //fetch specific task by id from server
   const fetchTask = async(id)=>{
-    const res = await fetch(`http://localhost:3000/tasks/${id}`)
+    const res = await fetch(`http://localhost:3004/tasks/${id}`)
     const data = await res.json()
     return data
   }
 
   //const a function to delete task
   const deleteTask = async (id) => {
-    await fetch(`http://localhost:3000/tasks/${id}`,{
+    await fetch(`http://localhost:3004/tasks/${id}`,{
       method:'DELETE'
     })
     setTasks(tasks.filter((task)=> task.id !== id))
   }
 
   const addTask = async(task) => { //task is an object with 3 parameters - text, day, reminder
-    const res = await fetch('http://localhost:3000/tasks', {
+    const res = await fetch('http://localhost:3004/tasks', {
       method: 'POST', //add new task to server
       headers: {
         'Content-type' : 'application/json',
       },
       body: JSON.stringify(task),
     })
+    
     const data = await res.json()
     setTasks([...tasks, data]) //update the UI to show new task
     
@@ -66,7 +67,7 @@ const App = () => {
   const toggleReminder = async(id) => {
     const taskToToggle = await fetchTask(id)
     const updatedTask = {...taskToToggle, reminder:!taskToToggle.reminder}//other properties under the task will not change, only the reminder property change to the opposite value, and then save this changed task as a object, waiting to be pass to server side
-    const res = await fetch(`http://localhost:3000/tasks/${id}`,{
+    const res = await fetch(`http://localhost:3004/tasks/${id}`,{
       method:'PUT',
       headers:{
         'Content-type':'application/json'
