@@ -10,9 +10,9 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-p, label, .footer {
+/* p, label, .footer {
   margin-left: 4px;
-}
+} */
 
 .footer {
   margin-top: 24px;
@@ -41,7 +41,7 @@ p, label, .footer {
   color: #fff;
   border: none;
   padding: 10px 20px;
-  margin: 4px;
+  margin: 4px 4px 4px 0;
   border-radius: 4px;
   cursor: pointer;
   text-decoration: none;
@@ -68,11 +68,16 @@ p, label, .footer {
 
 .task {
   background: #f4f4f4;
-  margin: 4px;
+  margin: 4px 4px 4px 0;
   padding: 10px 20px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+}
+
+.task .list-start{
+  display: flex;
+  align-items: center;
 }
 
 .task.reminder {
@@ -121,7 +126,7 @@ p, label, .footer {
 .form-control input {
   width: 100%;
   height: 40px;
-  margin: 4px;
+  margin: 4px 4px 4px 0;
   padding: 4px 8px;
   font-size: 16px;
 }
@@ -129,16 +134,29 @@ p, label, .footer {
 .form-control-check {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .form-control-check label {
-  flex: 1;
+  white-space: nowrap;
 }
 
-.form-control-check input {
+.form-control-check input[type="text"]  {
   flex: 2;
   height: 20px;
+}
+
+.form-control-check input[type="checkbox"]  {
+  height: 20px;
+  width: 20px;
+}
+
+.reminder-check input[type="checkbox"] {
+  margin-left: 16px;
+}
+
+.list-start input[type="checkbox"] {
+  margin-right: 16px;
 }
 
 footer {

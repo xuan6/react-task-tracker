@@ -42,7 +42,7 @@ const AddTask = ({onAdd, formVisibility}) => {
                     onChange={(e)=>setDay(e.target.value)}
                 />
             </div>
-            <div className='form-control form-control-check'>
+            <div className='form-control form-control-check reminder-check'>
                 <label>Set Reminder</label>
                 <input
                     type='checkbox'
@@ -55,7 +55,6 @@ const AddTask = ({onAdd, formVisibility}) => {
                 type='submit'
                 value='Save Task'
                 className='btn btn-block'
-
             />
         </form>
     )
