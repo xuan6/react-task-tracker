@@ -1,21 +1,18 @@
 import {FaTimes} from 'react-icons/fa'
-import { useState } from 'react/cjs/react.development'
 
-const Task = ({task, onDelete, onToggle}) => {
-
-    const[complete,setComplete]=useState(false)
+const Task = ({task, onDelete, onToggle, onCheck}) => {
 
     return (
         <div
-            className={`task ${task.reminder ?  'reminder' : ''}`}
+            className={`task ${task.reminder ?  'reminder' : ''} ${task.complete ?  'complete' : ''}`}
             onDoubleClick={() => onToggle(task.id)}>
             <div className='list-start'>
                 <div className='form-control-check'>
                     <input
                         type='checkbox'
-                        value={complete}
-                        checked={complete}
-                        onChange={(e)=>setComplete(e.currentTarget.checked)}
+                        value={task.complete}
+                        checked={task.complete}
+                        onChange={()=>onCheck(task.id)}
                     />
                 </div>
                 <div className='list-text'>

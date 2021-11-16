@@ -159,6 +159,11 @@ body {
   margin-right: 16px;
 }
 
+.complete{
+  opacity: 0.3;
+  text-decoration: line-through;
+}
+
 footer {
   margin-top: 30px;
   text-align: center;

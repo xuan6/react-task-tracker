@@ -102,17 +102,44 @@ const App = () => {
       }
   }
 
+  //task completion check and uncheck
+  // const checkCompletion = async(id) =>{
+  //   const taskToChange = await fetchTask(id)
+  //   const updatedTask = {...taskToChange, complete :!taskToChange.complete}
+  //   const res = await fetch(`http://localhost:3004/tasks/${id}`,
+  //     {
+  //       method:'PUT',
+  //       headers:{'Content-type':'applicatoin/json'},
+  //       body: JSON.stringify(updatedTask)
+  //     })
+  //   const data = await res.json()
+
+  //   setTasks(
+  //     tasks.map((task)=>
+  //       task.id === id ? {...task, complete:data.complete}: task)
+  //   )
+  // }
+
+  const checkCompletion = (id) =>{
+    setTasks(
+      tasks.map((task)=>
+        task.id === id ? {...task, complete:!task.complete}: task)
+    )
+  }
+
   const TasksSection = (props)=> {
     return(
       <div>
         {formDisplay?<AddTask onAdd={addTask}/>: " " }
         {tasks.length > 0 ?
-          <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>
+          <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} onCheck={checkCompletion}/>
           : <p>No Task to Show</p> //show empty state
         }
       </div>
     )
   }
+
+
 
   return (
   <Router>
