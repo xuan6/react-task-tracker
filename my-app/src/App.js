@@ -103,29 +103,31 @@ const App = () => {
   }
 
   //task completion check and uncheck
-  // const checkCompletion = async(id) =>{
-  //   const taskToChange = await fetchTask(id)
-  //   const updatedTask = {...taskToChange, complete :!taskToChange.complete}
-  //   const res = await fetch(`http://localhost:3004/tasks/${id}`,
-  //     {
-  //       method:'PUT',
-  //       headers:{'Content-type':'applicatoin/json'},
-  //       body: JSON.stringify(updatedTask)
-  //     })
-  //   const data = await res.json()
+  const checkCompletion = async(id) =>{
+    const taskToChange = await fetchTask(id)
+    const updatedTask = {...taskToChange, complete :!taskToChange.complete}
+    const res = await fetch(`http://localhost:3004/tasks/${id}`,
+      {
+        method:'PUT',
+        headers:{'Content-type':'application/json'},
+        body:JSON.stringify(updatedTask)
+      }
+    )
+    const data = await res.json()
+    console.log(data)
 
-  //   setTasks(
-  //     tasks.map((task)=>
-  //       task.id === id ? {...task, complete:data.complete}: task)
-  //   )
-  // }
-
-  const checkCompletion = (id) =>{
     setTasks(
       tasks.map((task)=>
-        task.id === id ? {...task, complete:!task.complete}: task)
+        task.id === id ? {...task, complete:data.complete}: task)
     )
   }
+
+  // const checkCompletion = (id) =>{
+  //   setTasks(
+  //     tasks.map((task)=>
+  //       task.id === id ? {...task, complete:!task.complete}: task)
+  //   )
+  // }
 
   const TasksSection = (props)=> {
     return(
