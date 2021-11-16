@@ -5,14 +5,16 @@ const Task = ({task, onDelete, onToggle}) => {
         <div
             className={`task ${task.reminder ?  'reminder' : ''}`}
             onDoubleClick={() => onToggle(task.id)}>
-            <h3>
-                {task.text}
+            <div className='list-text'>
+                <h3>{task.text}</h3>
+                <p>{task.day}</p>
+            </div>
+            <div className='icon-button'>
                 <FaTimes
-                    className='cancel-icon'
-                    onClick={() => onDelete(task.id)} //state pass down, action pass up.
+                className='cancel-icon'
+                onClick={() => onDelete(task.id)} //state pass down, action pass up.
                 />
-            </h3>
-            <p>{task.day}</p>
+            </div>
             
         </div>
     )

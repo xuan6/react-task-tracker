@@ -7,12 +7,6 @@
       "reminder": true
     },
     {
-      "id": 2,
-      "text": "Meeting",
-      "day": "Feb 6th at 1:30pm",
-      "reminder": false
-    },
-    {
       "text": "Grocery Shopping",
       "day": "Nov 21st 5pm",
       "reminder": true,
@@ -23,6 +17,12 @@
       "day": "Nov 24th 5pm",
       "reminder": true,
       "id": 4
+    },
+    {
+      "text": "Pick Up Package",
+      "day": "Oct 10th",
+      "reminder": "",
+      "id": 5
     }
   ]
 }

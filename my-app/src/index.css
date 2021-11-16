@@ -71,6 +71,8 @@ p, label, .footer {
   margin: 4px;
   padding: 10px 20px;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
 
 .task.reminder {
@@ -81,12 +83,28 @@ p, label, .footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  align-items: center;
+}
+
+.task .icon-button{
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
 }
 
 .task .cancel-icon {
-  color:red;
-  cursor: pointer;
+  margin: auto;
+  color: grey;
+  width: 1.5em;
+  height: 1.5em;
 }
+
+.task .icon-button:hover {
+  opacity:1;
+}
+
 
 .add-form {
   margin-bottom: 40px;
