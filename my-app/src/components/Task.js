@@ -2,6 +2,9 @@ import {FaTimes} from 'react-icons/fa'
 
 const Task = ({task, onDelete, onToggle, onCheck}) => {
 
+    const date = task.day
+    const dateDisplay = date.toString()
+
     return (
         <div
             className={`task ${task.reminder ?  'reminder' : ''} ${task.complete ?  'complete' : ''}`}
@@ -17,7 +20,7 @@ const Task = ({task, onDelete, onToggle, onCheck}) => {
                 </div>
                 <div className='list-text'>
                     <h3>{task.text}</h3>
-                    <p>{task.day}</p>
+                    <p>{dateDisplay}</p>
                 </div>
             </div>
             <div className='icon-button'>

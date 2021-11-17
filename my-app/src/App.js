@@ -44,12 +44,16 @@ const App = () => {
   }
 
   const addTask = async(task) => { //task is an object with 3 parameters - text, day, reminder
+    //convert Date() to string format
+    const dayOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour:'numeric', minute:'numeric' };
+    const dayFormatted = task.day.toLocaleString("en-US", dayOptions)
+    
     const res = await fetch('http://localhost:3004/tasks', {
       method: 'POST', //add new task to server
       headers: {
         'Content-type' : 'application/json',
       },
-      body: JSON.stringify(task),
+      body: JSON.stringify({...task, day:dayFormatted}),
     })
     
     const data = await res.json()
@@ -121,13 +125,6 @@ const App = () => {
         task.id === id ? {...task, complete:data.complete}: task)
     )
   }
-
-  // const checkCompletion = (id) =>{
-  //   setTasks(
-  //     tasks.map((task)=>
-  //       task.id === id ? {...task, complete:!task.complete}: task)
-  //   )
-  // }
 
   const TasksSection = (props)=> {
     return(

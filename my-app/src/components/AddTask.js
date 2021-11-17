@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import DateTimePicker from 'react-datetime-picker'
 
 const AddTask = ({onAdd, formVisibility}) => {
 
@@ -33,13 +34,12 @@ const AddTask = ({onAdd, formVisibility}) => {
                     value={text}
                     onChange={(e)=>setText(e.target.value)} />
             </div>
+            
             <div className='form-control'>
                 <label>Day & Time</label>
-                <input
-                    type='text'
-                    placeholder='Day & Time'
+                <DateTimePicker 
+                    onChange={setDay}
                     value={day}
-                    onChange={(e)=>setDay(e.target.value)}
                 />
             </div>
             <div className='form-control form-control-check reminder-check'>
