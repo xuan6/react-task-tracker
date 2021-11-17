@@ -25,6 +25,12 @@
       "day": "Oct 10th",
       "reminder": "",
       "id": 5
+    },
+    {
+      "text": "Go to Costco",
+      "day": "Nov 16th",
+      "reminder": "",
+      "id": 6
     }
   ]
 }
