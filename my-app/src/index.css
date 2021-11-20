@@ -10,10 +10,6 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-/* p, label, .footer {
-  margin-left: 4px;
-} */
-
 .footer {
   margin-top: 24px;
 }
@@ -25,7 +21,7 @@ body {
   min-height: 300px;
   border: 1px solid steelblue;
   padding: 30px;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 .header {
@@ -41,12 +37,14 @@ body {
   color: #fff;
   border: none;
   padding: 10px 20px;
-  margin: 4px 4px 4px 0;
+  margin:16px auto;
+  width: 100%;
   border-radius: 4px;
   cursor: pointer;
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
+  min-height: 48px;
 }
 
 .btn:focus {
@@ -54,11 +52,11 @@ body {
 }
 
 .btn:active {
-  transform: scale(0.9);
+  transform: scale(0.98);
 }
 
 .btn:hover {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .btn-block {
@@ -68,11 +66,12 @@ body {
 
 .task {
   background: #f4f4f4;
-  margin: 4px 4px 4px 0;
   padding: 10px 20px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  border-radius: 4px;
+  margin-bottom: 8px;
 }
 
 .task .list-start{
@@ -125,10 +124,13 @@ body {
 
 .form-control input {
   width: 100%;
-  height: 40px;
-  margin: 4px 4px 4px 0;
   padding: 4px 8px;
   font-size: 16px;
+}
+
+.form-control input[type="text"] {
+  height:40px;
+  border-radius: 4px;
 }
 
 .form-control-check {
@@ -166,6 +168,10 @@ input[type="checkbox"]:hover {
 .complete{
   opacity: 0.3;
   text-decoration: line-through;
+}
+
+.react-datetime-picker {
+  display: flex;
 }
 
 footer {
