@@ -8,7 +8,7 @@ import './PickerDate.css'
 import './PickerDateTime.css'
 import './PickerTime.css'
 
-const AddTask = ({onAdd, formVisibility}) => {
+const AddTask = ({onAdd}) => {
 
     const [text, setText] = useState('')
     const [day, setDay] = useState('')
@@ -21,6 +21,9 @@ const AddTask = ({onAdd, formVisibility}) => {
             alert('Please add task name.')
             return
         }
+        if(text){
+            alert('A new task is successfully added!')
+        }
 
         onAdd({text, day, reminder}) //adding a task by taking 3 parameter as a object as a whole
 
@@ -31,12 +34,12 @@ const AddTask = ({onAdd, formVisibility}) => {
     }
 
     return (
-        <form className={`add-form ${formVisibility}`} onSubmit={onSubmit}>
+        <form className={'add-form'} onSubmit={onSubmit}>
             <div className='form-control'>
                 <label>Task</label>
                 <input
                     type='text'
-                    placeholder='Add Task'
+                    placeholder='Task Name'
                     value={text}
                     onChange={(e)=>setText(e.target.value)} />
             </div>

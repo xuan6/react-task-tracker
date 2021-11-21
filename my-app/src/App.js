@@ -143,7 +143,7 @@ const App = () => {
   return (
   <Router>
     <div className="container">
-    <Header toggleTaskForm={toggleTaskForm}/>
+    <Header onToggle={toggleTaskForm}/>
       <Routes>
         <Route path='/*' element={<TasksSection/>} />
         <Route path='/about' element={<About/>}/>

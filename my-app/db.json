@@ -1,45 +1,22 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "text": "Doctors Appointment",
-      "day": "Feb 5th at 2:30pm",
+      "text": "Doctor's Appointment",
+      "day": "Wed, Nov 3, 2021, 9:00 AM",
       "reminder": true,
-      "complete": false
+      "id": 7
     },
     {
       "text": "Grocery Shopping",
-      "day": "Nov 21st 5pm",
-      "reminder": true,
-      "id": 3,
-      "complete": false
-    },
-    {
-      "text": "Buy Flowers",
-      "day": "Nov 24th 5pm",
-      "reminder": true,
-      "id": 4,
-      "complete": false
-    },
-    {
-      "text": "Pick Up Package",
-      "day": "Oct 10th",
+      "day": "Sat, Nov 6, 2021, 11:15 AM",
       "reminder": "",
-      "id": 5,
-      "complete": false
+      "id": 8
     },
     {
-      "text": "Go to Costco",
-      "day": "Nov 16th",
+      "text": "Pick up Package",
+      "day": "Sat, Nov 6, 2021, 5:00 PM",
       "reminder": "",
-      "id": 6,
-      "complete": false
-    },
-    {
-      "text": "erwert",
-      "day": "Wed, Nov 3, 2021, 3:20 PM",
-      "reminder": "",
-      "id": 7
+      "id": 9
     }
   ]
 }

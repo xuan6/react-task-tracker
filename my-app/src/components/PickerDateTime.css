@@ -32,7 +32,7 @@
     white-space: pre;
   }
   .react-datetime-picker__inputGroup__input {
-    min-width: 2em;
+    min-width: 2.5em;
     height: 100%;
     position: relative;
     padding: 1px;
@@ -41,6 +41,10 @@
     font: inherit;
     box-sizing: border-box;
     -moz-appearance: textfield;
+  }
+
+  .react-datetime-picker__inputGroup__year {
+    min-width: 3em;
   }
   .react-datetime-picker__inputGroup__input::-webkit-outer-spin-button,
   .react-datetime-picker__inputGroup__input::-webkit-inner-spin-button {

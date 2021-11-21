@@ -19,7 +19,7 @@ body {
   margin: 24px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);;
   padding: 30px;
   border-radius: 4px;
 }
@@ -33,7 +33,7 @@ body {
 
 .btn {
   display: inline-block;
-  background: #000;
+  background:green;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -120,6 +120,7 @@ body {
 
 .form-control label {
   display: block;
+  margin-bottom: 4px;
 }
 
 .form-control input {

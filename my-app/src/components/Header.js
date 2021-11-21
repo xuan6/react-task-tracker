@@ -4,7 +4,7 @@ import { useLocation } from 'react-router'
 import { useState, useEffect } from 'react'
 
 
-const Header = ({title, toggleTaskForm}) => {
+const Header = ({title, onToggle}) => {
     const [text, setText] = useState('Add New Task')
     const [visibility, setVisibility]= useState('false')
     const [buttonColor, setButtonColor] = useState('green')
@@ -26,7 +26,7 @@ const Header = ({title, toggleTaskForm}) => {
     }
 
     useEffect(() => { //componentDidMount async rendering
-        toggleTaskForm(visibility)
+        onToggle(visibility)
     });
 
     const location = useLocation()
