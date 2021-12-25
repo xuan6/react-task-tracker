@@ -10,7 +10,7 @@
     {
       "text": "Grocery Shopping",
       "day": "Sat, Nov 6, 2021, 11:15 AM",
-      "reminder": "",
+      "reminder": false,
       "id": 8,
       "complete": true
     },
