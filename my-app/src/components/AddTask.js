@@ -22,7 +22,7 @@ const AddTask = ({onAdd}) => {
             return
         }
         if(text){
-            alert('A new task is successfully added!')
+            alert('A new task was successfully added!')
         }
 
         onAdd({text, day, reminder}) //adding a task by taking 3 parameter as a object as a whole

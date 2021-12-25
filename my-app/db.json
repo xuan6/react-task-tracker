@@ -4,19 +4,35 @@
       "text": "Doctor's Appointment",
       "day": "Wed, Nov 3, 2021, 9:00 AM",
       "reminder": true,
-      "id": 7
+      "id": 7,
+      "complete": false
     },
     {
       "text": "Grocery Shopping",
       "day": "Sat, Nov 6, 2021, 11:15 AM",
       "reminder": "",
-      "id": 8
+      "id": 8,
+      "complete": true
     },
     {
       "text": "Pick up Package",
       "day": "Sat, Nov 6, 2021, 5:00 PM",
       "reminder": "",
-      "id": 9
+      "id": 9,
+      "complete": false
+    },
+    {
+      "text": "Buy Flowers",
+      "day": "Fri, Dec 24, 2021, 4:00 PM",
+      "reminder": "",
+      "id": 10,
+      "complete": false
+    },
+    {
+      "text": "Brew tea",
+      "day": "Sat, Dec 25, 2021, 11:00 AM",
+      "reminder": "",
+      "id": 11
     }
   ]
 }

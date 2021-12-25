@@ -1,6 +1,6 @@
 # React Task Tracker App
 
-This is the project built based on the [YouTube React Crash Course](https://www.youtube.com/watch?v=w7ejDZ8SWv8). It includes the react UI as well as JSON-server for the mock backend.
+The basic skeleton of this project was built based on the [YouTube React Crash Course](https://www.youtube.com/watch?v=w7ejDZ8SWv8). Custom styles and addtional features were developed on top of that tutorial. This App includes a React-based UI as well as a JSON-server for the mock backend. 
 
 ## Usage
 
