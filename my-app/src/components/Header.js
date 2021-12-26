@@ -16,7 +16,7 @@ const Header = ({title, onToggle}) => {
     }
     
     const toggleAdd = () => {
-        setText('Cancel')
+        setText('Dismiss')
         setVisibility('true')
         setButtonColor('grey')
     }
