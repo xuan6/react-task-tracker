@@ -1,6 +1,6 @@
-import {FaTimes} from 'react-icons/fa'
+import {FaTimes, FaEdit} from 'react-icons/fa'
 
-const Task = ({task, onDelete, onToggle, onCheck}) => {
+const Task = ({task, onDelete, onToggle, onCheck, onEdit}) => {
 
     const date = task.day
     const dateDisplay = date.toString()
@@ -23,12 +23,21 @@ const Task = ({task, onDelete, onToggle, onCheck}) => {
                     <p>{dateDisplay}</p>
                 </div>
             </div>
-            <div className='icon-button'>
-                <FaTimes
-                className='cancel-icon'
-                onClick={() => onDelete(task.id)} //state pass down, action pass up.
-                />
+            <div className='action-icons'>
+                <div className='icon-button'>
+                    <FaEdit
+                    className='action-icon'
+                    onClick={() => onEdit(task.id)} //state pass down, action pass up.
+                    />
+                </div>
+                <div className='icon-button'>
+                    <FaTimes
+                    className='action-icon'
+                    onClick={() => onDelete(task.id)} //state pass down, action pass up.
+                    />
+                </div>
             </div>
+            
             
         </div>
     )

@@ -91,6 +91,10 @@ body {
   align-items: center;
 }
 
+.action-icons {
+  display: flex;
+}
+
 .task .icon-button{
   width: 48px;
   height: 48px;
@@ -99,7 +103,7 @@ body {
   opacity: 0;
 }
 
-.task .cancel-icon {
+.task .action-icon {
   margin: auto;
   color: grey;
   width: 1.5em;

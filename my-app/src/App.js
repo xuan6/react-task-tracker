@@ -5,6 +5,7 @@ import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 import Footer from './components/Footer'
 import About from './components/About'
+// import EditTask from './components/EditTask'
 
 
 
@@ -43,6 +44,7 @@ const App = () => {
     setTasks(tasks.filter((task)=> task.id !== id))
   }
 
+  //const a function to add task
   const addTask = async(task) => { //task is an object with 3 parameters - text, day, reminder
     //convert Date() to string format
     const dayOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour:'numeric', minute:'numeric' };
@@ -63,8 +65,6 @@ const App = () => {
     // const id = Math.floor(Math.random()*100+1) //if use tasks.length + 1, then it will cause duplicated id when we delete tasks from the list. Say delete #2 task and add a new task, the later two tasks would both have id as #3
     // const newTask = {id, ...task}
     // setTasks([...tasks, newTask])
-
-    
   }
 
   // const a function to set reminder
@@ -95,6 +95,40 @@ const App = () => {
     //     )
   } 
 
+    //set edit task form visibility
+    const [editView, setEditView] = useState(false)
+    const toggleEditView = (visibility) => {
+      if (visibility==='true'){
+        setEditView(true)
+      }else
+      {
+        setEditView(false)
+      }
+    }
+  
+  const editTask = () => {
+    console.log('edit!')
+  }
+
+
+  //const a function to edit task
+  // const editTask = async(id) => {
+  //   // const taskToEdit = await fetchTask(id)
+  //   const editedTask = {text:newText, day:newDay, reminder:newReminder}
+  //   const res = await fetch(`http://localhost:3004/tasks/${id}`,{
+  //     nethod:'PUT',
+  //     headers:{
+  //       'Content-type':'application/json'
+  //     },
+  //     body: JSON.stringify(editedTask)
+  //   })
+  //   const data = await res.json()
+
+  //   setTasks(
+  //     tasks.map((task)=>task.id === id ? {reminder:data.reminder, day:data.day, text:data.text} : task)
+  //   )
+  // }
+
   //set add task form visibility
   const [formDisplay, setFormDisplay] = useState(true)
   const toggleTaskForm = (visibility) =>{ 
@@ -105,6 +139,8 @@ const App = () => {
         setFormDisplay(false)
       }
   }
+
+
 
   //task completion check and uncheck
   const checkCompletion = async(id) =>{
@@ -131,7 +167,7 @@ const App = () => {
       <div>
         {formDisplay?<AddTask onAdd={addTask}/>: " " }
         {tasks.length > 0 ?
-          <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} onCheck={checkCompletion}/>
+          <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} onCheck={checkCompletion} onEdit={editTask}/>
           : <p>No Task to Show</p> //show empty state
         }
       </div>
