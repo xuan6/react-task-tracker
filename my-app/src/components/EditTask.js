@@ -66,7 +66,7 @@ const EditTask = ({currentTask, onEdit, visibility}) => {
                 value='Update Task'
                 className='btn btn-block'
             />
-            <Button color='grey' text='Cancel' onClick={onClick} />
+            <Button buttonColor='#efefef' text='Cancel' textColor='#000000' onClick={onClick} />
         </form>
     )
 }

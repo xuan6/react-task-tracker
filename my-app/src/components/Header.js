@@ -7,18 +7,21 @@ import { useState, useEffect } from 'react'
 const Header = ({title, onToggle}) => {
     const [text, setText] = useState('Add New Task')
     const [visibility, setVisibility]= useState('false')
-    const [buttonColor, setButtonColor] = useState('green')
+    const [buttonColor, setButtonColor] = useState('#176917')
+    const [textColor, setTextColor] = useState('#FAFAFA')
 
     const toggleHide = () => {
         setText('Add New Task')
         setVisibility('false')
-        setButtonColor('green')
+        setButtonColor('#176917')
+        setTextColor('#FAFAFA')
     }
     
     const toggleAdd = () => {
         setText('Dismiss')
         setVisibility('true')
-        setButtonColor('grey')
+        setButtonColor('#efefef')
+        setTextColor('#000000')
     }
     
     const onClick =()=> {
@@ -38,7 +41,7 @@ const Header = ({title, onToggle}) => {
         <div className='header'>
             <h1 className='title'>{title}</h1>
             {location.pathname ==='/' &&
-                (<Button id='add' color={buttonColor} text={text} onClick={onClick}/>)
+                (<Button buttonColor={buttonColor} text={text} textColor={textColor} onClick={onClick}/>)
             }
         </div>
     )
