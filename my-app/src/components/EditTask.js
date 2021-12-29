@@ -6,13 +6,19 @@ import './PickerClock.css'
 import './PickerDate.css'
 import './PickerDateTime.css'
 import './PickerTime.css'
+import Button from './Button'
 
-const EditTask = ({currentTask, onEdit}) => {
+const EditTask = ({currentTask, onEdit, visibility}) => {
 
     const [text, setText] = useState(currentTask.text)
     const [day, setDay] = useState(currentTask.text.day)
     const [reminder, setReminder] = useState(currentTask.reminder)
     const id = currentTask.id
+
+    const onClick =()=> {//click dismiss button
+        visibility()
+    }
+
 
     const onSubmit = (e) => {
         e.preventDefault() //prevent refreshing and submiting to this page
@@ -65,7 +71,7 @@ const EditTask = ({currentTask, onEdit}) => {
                 value='Updated Task'
                 className='btn btn-block'
             />
-            <button>Dismiss</button>
+            <Button color='grey' text='Dismiss' onClick={onClick} />
         </form>
     )
 }

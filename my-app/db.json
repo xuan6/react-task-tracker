@@ -17,7 +17,7 @@
     {
       "text": "Buy Flowers",
       "day": "Fri, Dec 24, 2021, 4:00 PM",
-      "reminder": "",
+      "reminder": true,
       "id": 10,
       "complete": false
     },

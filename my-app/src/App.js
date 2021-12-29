@@ -144,7 +144,11 @@ const App = () => {
     const data = await fetchTask(id)
     setTaskToEdit(data) //feed the value of selected task to 'to-edit' task
     setFormDisplay(false) //toggle off add view
-    setEditViewVisibility(!editViewVisibility) //toggle on edit view
+    setEditViewVisibility(true) //toggle on edit view
+  }
+  
+  const toggleEditView =()=> {
+    setEditViewVisibility(!editViewVisibility)
   }
 
   //const a function to edit task
@@ -190,7 +194,7 @@ const App = () => {
     return(
       <div>
         {formDisplay?<AddTask onAdd={addTask}/>: " " }
-        {editViewVisibility? <EditTask currentTask={tasktoEdit} onEdit={editTask}/>:''}
+        {editViewVisibility? <EditTask currentTask={tasktoEdit} onEdit={editTask} visibility={toggleEditView}/>:''}
         {tasks.length > 0 ?
           <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} onCheck={checkCompletion} toEdit={locateTasktoEdit}/> 
           : <p>No Task to Show</p> //show empty state
