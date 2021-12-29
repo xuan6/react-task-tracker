@@ -36,6 +36,7 @@ const EditTask = ({currentTask, onEdit, visibility}) => {
 
     return (
         <form className={'add-form'} onSubmit={onSubmit}>
+            <h3>Update Task</h3>
             <div className='form-control'>
                 <label>Task</label>
                 <input
@@ -63,7 +64,7 @@ const EditTask = ({currentTask, onEdit, visibility}) => {
             </div>
             <input
                 type='submit'
-                value='Update Task'
+                value='Update'
                 className='btn btn-block'
             />
             <Button buttonColor='#efefef' text='Cancel' textColor='#000000' onClick={onClick} />

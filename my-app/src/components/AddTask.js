@@ -35,6 +35,7 @@ const AddTask = ({onAdd}) => {
 
     return (
         <form className={'add-form'} onSubmit={onSubmit}>
+            <h3>Add Task</h3>
             <div className='form-control'>
                 <label>Task</label>
                 <input
@@ -62,7 +63,7 @@ const AddTask = ({onAdd}) => {
             </div>
             <input
                 type='submit'
-                value='Add Task'
+                value='Add'
                 className='btn btn-block'
             />
         </form>
