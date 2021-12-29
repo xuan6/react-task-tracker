@@ -7,13 +7,13 @@ import { useState, useEffect } from 'react'
 const Header = ({title, onToggle}) => {
     const [text, setText] = useState('Add New Task')
     const [visibility, setVisibility]= useState('false')
-    const [buttonColor, setButtonColor] = useState('#176917')
+    const [buttonColor, setButtonColor] = useState('#097C3B')
     const [textColor, setTextColor] = useState('#FAFAFA')
 
     const toggleHide = () => {
         setText('Add New Task')
         setVisibility('false')
-        setButtonColor('#176917')
+        setButtonColor('#097C3B')
         setTextColor('#FAFAFA')
     }
     
