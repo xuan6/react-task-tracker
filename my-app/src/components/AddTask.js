@@ -62,7 +62,7 @@ const AddTask = ({onAdd}) => {
             </div>
             <input
                 type='submit'
-                value='Save Task'
+                value='Add Task'
                 className='btn btn-block'
             />
         </form>

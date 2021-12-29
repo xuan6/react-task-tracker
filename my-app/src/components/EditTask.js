@@ -32,11 +32,6 @@ const EditTask = ({currentTask, onEdit, visibility}) => {
         }
 
         onEdit({id, text, day, reminder})
-
-        //clear form
-        setText('')
-        setDay('')
-        setReminder(false)
     }
 
     return (
@@ -68,10 +63,10 @@ const EditTask = ({currentTask, onEdit, visibility}) => {
             </div>
             <input
                 type='submit'
-                value='Updated Task'
+                value='Update Task'
                 className='btn btn-block'
             />
-            <Button color='grey' text='Dismiss' onClick={onClick} />
+            <Button color='grey' text='Cancel' onClick={onClick} />
         </form>
     )
 }

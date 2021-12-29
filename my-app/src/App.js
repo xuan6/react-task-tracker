@@ -188,6 +188,8 @@ const App = () => {
     setTasks(
       tasks.map((task)=>task.id === id ? {...data, day:dayFormatted(data.day)} : task)
     )
+
+    setEditViewVisibility(false)
   }
 
   const TasksSection = (props)=> {

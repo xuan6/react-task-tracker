@@ -9,10 +9,10 @@
     },
     {
       "text": "Pick up Package",
-      "day": "Sat, Nov 6, 2021, 5:00 PM",
+      "day": "Fri, Dec 10, 2021, 12:00 AM",
       "reminder": "",
-      "id": 9,
-      "complete": false
+      "complete": false,
+      "id": 9
     },
     {
       "text": "Buy Flowers",
@@ -26,6 +26,18 @@
       "day": "Fri, Dec 24, 2021, 11:00 AM",
       "reminder": "",
       "id": 11
+    },
+    {
+      "text": "Go to park",
+      "day": "",
+      "reminder": "",
+      "id": 12
+    },
+    {
+      "text": "Walk dog",
+      "day": "Sat, Dec 18, 2021, 12:00 PM",
+      "reminder": "",
+      "id": 13
     }
   ]
 }

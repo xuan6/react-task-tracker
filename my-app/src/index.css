@@ -79,6 +79,10 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.task:hover {
+  background: #fcfcfc;
+}
+
 .task .list-start{
   display: flex;
   align-items: center;
@@ -171,7 +175,7 @@ input[type="checkbox"]:hover {
 }
 
 .complete{
-  opacity: 0.3;
+  opacity: 0.2;
   text-decoration: line-through;
 }
 
