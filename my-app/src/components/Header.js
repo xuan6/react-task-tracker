@@ -25,6 +25,8 @@ const Header = ({title, onToggle}) => {
         text === 'Add New Task' ? toggleAdd() : toggleHide()
     }
 
+    // onToggle(visibility)
+
     useEffect(() => { //componentDidMount async rendering
         onToggle(visibility)
     });
@@ -33,10 +35,10 @@ const Header = ({title, onToggle}) => {
 
 
     return (
-        <div>
-            <h1 className='header'>{title}</h1>
+        <div className='header'>
+            <h1 className='title'>{title}</h1>
             {location.pathname ==='/' &&
-                (<Button color={buttonColor} text={text} onClick={onClick}/>)
+                (<Button id='add' color={buttonColor} text={text} onClick={onClick}/>)
             }
         </div>
     )

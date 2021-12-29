@@ -5,13 +5,13 @@
       "day": "Sat, Nov 6, 2021, 11:15 AM",
       "reminder": false,
       "id": 8,
-      "complete": true
+      "complete": false
     },
     {
       "text": "Pick up Package",
-      "day": "Fri, Dec 10, 2021, 12:00 AM",
+      "day": "Fri, Dec 31, 2021, 12:00 PM",
       "reminder": "",
-      "complete": false,
+      "complete": true,
       "id": 9
     },
     {

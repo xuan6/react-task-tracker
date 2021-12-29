@@ -27,9 +27,13 @@ body {
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  justify-content: space-between;
+}
+
+.header .btn{
+  width: auto;
+  margin-right: 0;
 }
 
 .btn {

@@ -104,6 +104,9 @@ const App = () => {
   //set add task form visibility
   const [formDisplay, setFormDisplay] = useState(true)
   const toggleTaskForm = (visibility) =>{ 
+      // if(editViewVisibility){
+      //   setEditViewVisibility(false)
+      // }
       if (visibility==='true'){
         setFormDisplay(true)
       }else
