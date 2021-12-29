@@ -1,6 +1,6 @@
 import {FaTimes, FaEdit} from 'react-icons/fa'
 
-const Task = ({task, onDelete, onToggle, onCheck, onEdit}) => {
+const Task = ({task, onDelete, onToggle, onCheck, toEdit}) => {
 
     const date = task.day
     const dateDisplay = date.toString()
@@ -27,7 +27,8 @@ const Task = ({task, onDelete, onToggle, onCheck, onEdit}) => {
                 <div className='icon-button'>
                     <FaEdit
                     className='action-icon'
-                    onClick={() => onEdit(task.id)} //state pass down, action pass up.
+                    onClick={() => toEdit(task.id)//show current data and edit form
+                    } //state pass down, action pass up.
                     />
                 </div>
                 <div className='icon-button'>
@@ -37,9 +38,8 @@ const Task = ({task, onDelete, onToggle, onCheck, onEdit}) => {
                     />
                 </div>
             </div>
-            
-            
         </div>
+        
     )
 }
 

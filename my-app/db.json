@@ -1,13 +1,6 @@
 {
   "tasks": [
     {
-      "text": "Doctor's Appointment",
-      "day": "Wed, Nov 3, 2021, 9:00 AM",
-      "reminder": true,
-      "id": 7,
-      "complete": false
-    },
-    {
       "text": "Grocery Shopping",
       "day": "Sat, Nov 6, 2021, 11:15 AM",
       "reminder": false,

@@ -7,11 +7,12 @@ import './PickerDate.css'
 import './PickerDateTime.css'
 import './PickerTime.css'
 
-const EditTask = ({onEdit}) => {
+const EditTask = ({currentTask, onEdit}) => {
 
-    const [text, setText] = useState('')
-    const [day, setDay] = useState('')
-    const [reminder, setReminder] = useState('')
+    const [text, setText] = useState(currentTask.text)
+    const [day, setDay] = useState(currentTask.text.day)
+    const [reminder, setReminder] = useState(currentTask.reminder)
+    const id = currentTask.id
 
     const onSubmit = (e) => {
         e.preventDefault() //prevent refreshing and submiting to this page
@@ -21,10 +22,10 @@ const EditTask = ({onEdit}) => {
             return
         }
         if(text){
-            alert('A new task was successfully added!')
+            alert('Task was successfully updated!')
         }
 
-        onEdit({text, day, reminder}) //adding a task by taking 3 parameter as a object as a whole
+        onEdit({id, text, day, reminder})
 
         //clear form
         setText('')
@@ -61,9 +62,10 @@ const EditTask = ({onEdit}) => {
             </div>
             <input
                 type='submit'
-                value='Save Task'
+                value='Updated Task'
                 className='btn btn-block'
             />
+            <button>Dismiss</button>
         </form>
     )
 }

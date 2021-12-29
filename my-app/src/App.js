@@ -5,6 +5,7 @@ import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 import Footer from './components/Footer'
 import About from './components/About'
+import EditTask from './components/EditTask'
 // import EditTask from './components/EditTask'
 
 
@@ -44,18 +45,23 @@ const App = () => {
     setTasks(tasks.filter((task)=> task.id !== id))
   }
 
+  //date picket config
+  const dayOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour:'numeric', minute:'numeric' };
+  const dayFormatted = (day) =>{
+    return day.toLocaleString("en-US", dayOptions)
+  }
+
   //const a function to add task
   const addTask = async(task) => { //task is an object with 3 parameters - text, day, reminder
     //convert Date() to string format
-    const dayOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour:'numeric', minute:'numeric' };
-    const dayFormatted = task.day.toLocaleString("en-US", dayOptions)
-    
+    // const dayFormatted = task.day.toLocaleString("en-US", dayOptions)
+
     const res = await fetch('http://localhost:3004/tasks', {
       method: 'POST', //add new task to server
       headers: {
         'Content-type' : 'application/json',
       },
-      body: JSON.stringify({...task, day:dayFormatted}),
+      body: JSON.stringify({...task, day:dayFormatted(task.day)}),
     })
     
     const data = await res.json()
@@ -95,40 +101,6 @@ const App = () => {
     //     )
   } 
 
-    //set edit task form visibility
-    const [editView, setEditView] = useState(false)
-    const toggleEditView = (visibility) => {
-      if (visibility==='true'){
-        setEditView(true)
-      }else
-      {
-        setEditView(false)
-      }
-    }
-  
-  const editTask = () => {
-    console.log('edit!')
-  }
-
-
-  //const a function to edit task
-  // const editTask = async(id) => {
-  //   // const taskToEdit = await fetchTask(id)
-  //   const editedTask = {text:newText, day:newDay, reminder:newReminder}
-  //   const res = await fetch(`http://localhost:3004/tasks/${id}`,{
-  //     nethod:'PUT',
-  //     headers:{
-  //       'Content-type':'application/json'
-  //     },
-  //     body: JSON.stringify(editedTask)
-  //   })
-  //   const data = await res.json()
-
-  //   setTasks(
-  //     tasks.map((task)=>task.id === id ? {reminder:data.reminder, day:data.day, text:data.text} : task)
-  //   )
-  // }
-
   //set add task form visibility
   const [formDisplay, setFormDisplay] = useState(true)
   const toggleTaskForm = (visibility) =>{ 
@@ -162,12 +134,65 @@ const App = () => {
     )
   }
 
+  //set edit task form visibility
+  const [editViewVisibility, setEditViewVisibility] = useState(false)
+  //create a slot to store the value of the 'to-edit' task
+  const [tasktoEdit, setTaskToEdit] = useState('')
+  
+  //function to show current values before making edits
+  const locateTasktoEdit = async(id) => {
+    const data = await fetchTask(id)
+    setTaskToEdit(data) //feed the value of selected task to 'to-edit' task
+    setFormDisplay(false) //toggle off add view
+    setEditViewVisibility(!editViewVisibility) //toggle on edit view
+  }
+
+  //const a function to edit task
+  const editTask = async({id, text, day, reminder}) => {
+    const input = {text:text, day:day, reminder:reminder, complete:tasktoEdit.complete}
+    const editedTask = {text:'', day:'', reminder:'', complete:tasktoEdit.complete}
+
+    if (input.text === tasktoEdit.text ){
+      editedTask.text = tasktoEdit.text
+    }else{
+      editedTask.text = input.text
+    }
+
+    if (input.day){
+      editedTask.day = dayFormatted(input.day) //if user enter a new date, then format the date value and add it as an update
+    }else{
+      editedTask.day = tasktoEdit.day //no change on date then keep the original value
+    }
+
+    if (input.reminder === tasktoEdit.reminder ){
+      editedTask.reminder = tasktoEdit.reminder
+    }else{
+      editedTask.reminder = input.reminder
+    }
+    
+    // console.log(editedTask)
+
+    const res = await fetch(`http://localhost:3004/tasks/${id}`,{
+      method:'PUT',
+      headers:{
+        'Content-type':'application/json'
+      },
+      body: JSON.stringify(editedTask)
+    })
+    const data = await res.json()
+
+    setTasks(
+      tasks.map((task)=>task.id === id ? {...data, day:dayFormatted(data.day)} : task)
+    )
+  }
+
   const TasksSection = (props)=> {
     return(
       <div>
         {formDisplay?<AddTask onAdd={addTask}/>: " " }
+        {editViewVisibility? <EditTask currentTask={tasktoEdit} onEdit={editTask}/>:''}
         {tasks.length > 0 ?
-          <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} onCheck={checkCompletion} onEdit={editTask}/>
+          <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} onCheck={checkCompletion} toEdit={locateTasktoEdit}/> 
           : <p>No Task to Show</p> //show empty state
         }
       </div>
