@@ -22,20 +22,14 @@
       "complete": false
     },
     {
-      "text": "Brew tea",
-      "day": "Fri, Dec 24, 2021, 11:00 AM",
-      "reminder": "",
-      "id": 11
-    },
-    {
       "text": "Go to park",
       "day": "",
       "reminder": "",
       "id": 12
     },
     {
-      "text": "Walk dog",
-      "day": "Sat, Dec 18, 2021, 12:00 PM",
+      "text": "Walk neighbor's dog",
+      "day": "Thu, Dec 30, 2021, 10:00 AM",
       "reminder": "",
       "id": 13
     }

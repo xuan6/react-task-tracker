@@ -189,7 +189,7 @@ const App = () => {
     const data = await res.json()
 
     setTasks(
-      tasks.map((task)=>task.id === id ? {...data, day:dayFormatted(data.day)} : task)
+      tasks.map((task)=>task.id === id ? data : task)
     )
 
     setEditViewVisibility(false)
